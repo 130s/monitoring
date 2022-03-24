@@ -67,6 +67,11 @@ install(DIRECTORY include/${PROJECT_NAME}/
   PATTERN ".svn" EXCLUDE
 )
 
+foreach(dir config launch)
+  install(DIRECTORY ${dir}/
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
+endforeach(dir)
+
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
 
